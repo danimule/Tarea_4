@@ -351,8 +351,8 @@
 <a id="EDOs.edos"></a>
     <div class="doc doc-contents first">
 
-      <p>Contiene multiples formas de resolver ecuaciones diferenciales oridnarias.</p>
-<p>Este modulo permite al usuario resolver sus ODEs mediante los metodos de Euler, RK2 y RK4.</p>
+      <p>Contiene multiples métodos numéricos para resolver ecuaciones diferenciales ordinarias.</p>
+<p>Este módulo permite al usuario resolver sus EDOs mediante los metodos de Euler, RK2 y RK4.</p>
 
 
 
@@ -377,7 +377,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Metodo de Euler para resolver ODE.</p>
+      <p>Metodo de Euler para resolver EDOs.</p>
 
 
 <p><span class="doc-section-title">Examples:</span></p>
@@ -406,7 +406,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Ecuación a resolver.</p>
+                <p>Función que iguala a dx/dt.</p>
               </div>
             </td>
             <td>
@@ -416,7 +416,7 @@
           <tr class="doc-section-item">
             <td><code>x0</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -430,7 +430,7 @@
           <tr class="doc-section-item">
             <td><code>t0</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -444,7 +444,7 @@
           <tr class="doc-section-item">
             <td><code>tf</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -462,7 +462,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Número de particiones del rango de la variable independiente.</p>
+                <p>Número de particiones del intervalo de la variable independiente.</p>
               </div>
             </td>
             <td>
@@ -484,21 +484,21 @@
       <tbody>
           <tr class="doc-section-item">
 <td><code>x</code></td>            <td>
-                  <code>vector</code>
+                  <code>array</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>resultados de la variable dependiente.</p>
+                <p>Resultados de la variable dependiente en un arreglo de rango N</p>
               </div>
             </td>
           </tr>
           <tr class="doc-section-item">
 <td><code>t</code></td>            <td>
-                  <code>vector</code>
+                  <code>array</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>resultados de la variable independiente.</p>
+                <p>Resultados de la variable independiente en un arreglo de rango N</p>
               </div>
             </td>
           </tr>
@@ -538,7 +538,7 @@
 <span class="normal">39</span>
 <span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Metodo de Euler para resolver ODE.</span>
+<span class="sd">    Metodo de Euler para resolver EDOs.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; import numpy as np</span>
@@ -547,15 +547,15 @@
 <span class="sd">        &gt;&gt;&gt; x,t = Euler(f,0,0,10,20)</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        f (function): Ecuación a resolver.</span>
-<span class="sd">        x0 (int): Valor inicial para la variable dependiente.</span>
-<span class="sd">        t0 (int): Valor inicial para la variable independiente.</span>
-<span class="sd">        tf (int): Valor final para la variable independiente.</span>
-<span class="sd">        N (int): Número de particiones del rango de la variable independiente.</span>
+<span class="sd">        f (function): Función que iguala a dx/dt.</span>
+<span class="sd">        x0 (float): Valor inicial para la variable dependiente.</span>
+<span class="sd">        t0 (float): Valor inicial para la variable independiente.</span>
+<span class="sd">        tf (float): Valor final para la variable independiente.</span>
+<span class="sd">        N (int): Número de particiones del intervalo de la variable independiente.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        x (vector): resultados de la variable dependiente.</span>
-<span class="sd">        t (vector): resultados de la variable independiente.</span>
+<span class="sd">        x (array): Resultados de la variable dependiente en un arreglo de rango N</span>
+<span class="sd">        t (array): Resultados de la variable independiente en un arreglo de rango N</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
@@ -612,7 +612,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Ecuación a resolver.</p>
+                <p>función que iguala a dx/dt.</p>
               </div>
             </td>
             <td>
@@ -622,7 +622,7 @@
           <tr class="doc-section-item">
             <td><code>x0</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -636,7 +636,7 @@
           <tr class="doc-section-item">
             <td><code>t0</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -650,7 +650,7 @@
           <tr class="doc-section-item">
             <td><code>tf</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -668,7 +668,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Número de particiones del rango de la variable independiente.</p>
+                <p>Número de particiones del intervalo de la variable independiente.</p>
               </div>
             </td>
             <td>
@@ -690,21 +690,21 @@
       <tbody>
           <tr class="doc-section-item">
 <td><code>x</code></td>            <td>
-                  <code>vector</code>
+                  <code>array</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>resultados de la variable dependiente.</p>
+                <p>Resultados de la variable dependiente en un arreglo de rango N</p>
               </div>
             </td>
           </tr>
           <tr class="doc-section-item">
 <td><code>t</code></td>            <td>
-                  <code>vector</code>
+                  <code>array</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>resultados de la variable independiente.</p>
+                <p>Resultados de la variable independiente en un arreglo de rango N</p>
               </div>
             </td>
           </tr>
@@ -747,8 +747,7 @@
 <span class="normal">74</span>
 <span class="normal">75</span>
 <span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">RK2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">RK2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Método de Runge-Kutta de Segundo Orden para resolver ODE.</span>
@@ -760,16 +759,15 @@
 <span class="sd">        &gt;&gt;&gt; x,t = RK2(f,0,0,10,20)</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        f (function): Ecuación a resolver.</span>
-<span class="sd">        x0 (int): Valor inicial de la variable dependiente.</span>
-<span class="sd">        t0 (int): Valor inicial de la variable independiente.</span>
-<span class="sd">        tf (int): valor final de la variable independiente.</span>
-<span class="sd">        N (int): Número de particiones del rango de la variable independiente.</span>
+<span class="sd">        f (function): función que iguala a dx/dt.</span>
+<span class="sd">        x0 (float): Valor inicial de la variable dependiente.</span>
+<span class="sd">        t0 (float): Valor inicial de la variable independiente.</span>
+<span class="sd">        tf (float): valor final de la variable independiente.</span>
+<span class="sd">        N (int): Número de particiones del intervalo de la variable independiente.</span>
 
 <span class="sd">    returns:</span>
-<span class="sd">        x (vector): resultados de la variable dependiente.</span>
-<span class="sd">        t (vector): resultados de la variable independiente.</span>
-
+<span class="sd">        x (array): Resultados de la variable dependiente en un arreglo de rango N</span>
+<span class="sd">        t (array): Resultados de la variable independiente en un arreglo de rango N</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
@@ -807,7 +805,7 @@
 <p><span class="doc-section-title">Examples:</span></p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">t</span> <span class="o">=</span> <span class="n">RK4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 </code></pre></div>
 
@@ -830,7 +828,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Ecuación a resolver.</p>
+                <p>Función que iguala a dx/dt.</p>
               </div>
             </td>
             <td>
@@ -840,7 +838,7 @@
           <tr class="doc-section-item">
             <td><code>x0</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -854,7 +852,7 @@
           <tr class="doc-section-item">
             <td><code>t0</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -868,7 +866,7 @@
           <tr class="doc-section-item">
             <td><code>tf</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -886,7 +884,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Número de particiones del rango de la variable independiente.</p>
+                <p>Número de particiones del intervalo de la variable independiente.</p>
               </div>
             </td>
             <td>
@@ -908,21 +906,21 @@
       <tbody>
           <tr class="doc-section-item">
 <td><code>x</code></td>            <td>
-                  <code>vector</code>
+                  <code>array</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>resultados de la variable dependiente.</p>
+                <p>Resultados de la variable dependiente en un arreglo de rango N</p>
               </div>
             </td>
           </tr>
           <tr class="doc-section-item">
 <td><code>t</code></td>            <td>
-                  <code>vector</code>
+                  <code>array</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>resultados de la variable independiente.</p>
+                <p>Resultados de la variable independiente en un arreglo de rango N</p>
               </div>
             </td>
           </tr>
@@ -931,7 +929,8 @@
 
             <details class="quote">
               <summary>Source code in <code>EDOs\edos.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 82</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 81</span>
+<span class="normal"> 82</span>
 <span class="normal"> 83</span>
 <span class="normal"> 84</span>
 <span class="normal"> 85</span>
@@ -965,28 +964,27 @@
 <span class="normal">113</span>
 <span class="normal">114</span>
 <span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">RK4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+<span class="normal">116</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">RK4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Método de Runge-Kutta de Cuarto Orden para resolver ODE.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">        &gt;&gt;&gt; def f(x,t):</span>
-<span class="sd">        &gt;&gt;&gt;     return -x**3 + np.sin(t)</span>
+<span class="sd">        &gt;&gt;&gt;     return -1.0*x**3 + np.sin(t)</span>
 <span class="sd">        &gt;&gt;&gt; x,t = RK4(f,0,0,10,20)</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        f (func): Ecuación a resolver.</span>
-<span class="sd">        x0 (int): Valor inicial para la variable dependiente.</span>
-<span class="sd">        t0 (int): Valor inicial para la variable independiente.</span>
-<span class="sd">        tf (int): Valor final para la variable independiente.</span>
-<span class="sd">        N (int): Número de particiones del rango de la variable independiente.</span>
+<span class="sd">        f (func): Función que iguala a dx/dt.</span>
+<span class="sd">        x0 (float): Valor inicial para la variable dependiente.</span>
+<span class="sd">        t0 (float): Valor inicial para la variable independiente.</span>
+<span class="sd">        tf (float): Valor final para la variable independiente.</span>
+<span class="sd">        N (int): Número de particiones del intervalo de la variable independiente.</span>
 
 
 <span class="sd">    returns:</span>
-<span class="sd">        x (vector): resultados de la variable dependiente.</span>
-<span class="sd">        t (vector): resultados de la variable independiente.</span>
+<span class="sd">        x (array): Resultados de la variable dependiente en un arreglo de rango N</span>
+<span class="sd">        t (array): Resultados de la variable independiente en un arreglo de rango N</span>
 
 <span class="sd">     &quot;&quot;&quot;</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
