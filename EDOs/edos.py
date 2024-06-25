@@ -1,16 +1,16 @@
 # EDOs/edos.py
 
 """
-Contiene multiples formas de resolver ecuaciones diferenciales oridnarias.
+Contiene multiples métodos numéricos para resolver ecuaciones diferenciales ordinarias.
 
-Este modulo permite al usuario resolver sus ODEs mediante los metodos de Euler, RK2 y RK4.
+Este módulo permite al usuario resolver sus EDOs mediante los metodos de Euler, RK2 y RK4.
 
 """
 
 
 def Euler(f,x0,t0,tf,N):
     """
-    Metodo de Euler para resolver ODE.
+    Metodo de Euler para resolver EDOs.
 
     Examples:
         >>> import numpy as np
@@ -19,15 +19,15 @@ def Euler(f,x0,t0,tf,N):
         >>> x,t = Euler(f,0,0,10,20)
 
     Args:
-        f (function): Ecuación a resolver.
-        x0 (int): Valor inicial para la variable dependiente.
-        t0 (int): Valor inicial para la variable independiente.
-        tf (int): Valor final para la variable independiente.
-        N (int): Número de particiones del rango de la variable independiente.
+        f (function): Función que iguala a dx/dt.
+        x0 (float): Valor inicial para la variable dependiente.
+        t0 (float): Valor inicial para la variable independiente.
+        tf (float): Valor final para la variable independiente.
+        N (int): Número de particiones del intervalo de la variable independiente.
 
     Returns:
-        x (vector): resultados de la variable dependiente.
-        t (vector): resultados de la variable independiente.
+        x (array): Resultados de la variable dependiente en un arreglo de rango N
+        t (array): Resultados de la variable independiente en un arreglo de rango N
     """
     t = np.linspace(t0,tf,N)
     x = np.zeros(t.size)
@@ -52,16 +52,15 @@ def RK2(f,x0,t0,tf,N):
         >>> x,t = RK2(f,0,0,10,20)
 
     Args:
-        f (function): Ecuación a resolver.
-        x0 (int): Valor inicial de la variable dependiente.
-        t0 (int): Valor inicial de la variable independiente.
-        tf (int): valor final de la variable independiente.
-        N (int): Número de particiones del rango de la variable independiente.
+        f (function): función que iguala a dx/dt.
+        x0 (float): Valor inicial de la variable dependiente.
+        t0 (float): Valor inicial de la variable independiente.
+        tf (float): valor final de la variable independiente.
+        N (int): Número de particiones del intervalo de la variable independiente.
 
     returns:
-        x (vector): resultados de la variable dependiente.
-        t (vector): resultados de la variable independiente.
-
+        x (array): Resultados de la variable dependiente en un arreglo de rango N
+        t (array): Resultados de la variable independiente en un arreglo de rango N
     """
     
     t = np.linspace(t0,tf,N)
@@ -86,20 +85,20 @@ def RK4(f,x0,t0,tf,N):
     Examples:
         >>> import numpy as np
         >>> def f(x,t):
-        >>>     return -x**3 + np.sin(t)
+        >>>     return -1.0*x**3 + np.sin(t)
         >>> x,t = RK4(f,0,0,10,20)
 
     Args:
-        f (func): Ecuación a resolver.
-        x0 (int): Valor inicial para la variable dependiente.
-        t0 (int): Valor inicial para la variable independiente.
-        tf (int): Valor final para la variable independiente.
-        N (int): Número de particiones del rango de la variable independiente.
+        f (func): Función que iguala a dx/dt.
+        x0 (float): Valor inicial para la variable dependiente.
+        t0 (float): Valor inicial para la variable independiente.
+        tf (float): Valor final para la variable independiente.
+        N (int): Número de particiones del intervalo de la variable independiente.
 
 
     returns:
-        x (vector): resultados de la variable dependiente.
-        t (vector): resultados de la variable independiente.
+        x (array): Resultados de la variable dependiente en un arreglo de rango N
+        t (array): Resultados de la variable independiente en un arreglo de rango N
 
      """
     t = np.linspace(t0,tf,N)
